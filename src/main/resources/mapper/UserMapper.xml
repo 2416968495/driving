@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.kgc.driving.dao.UserMapper">
+
+    <!--查询所有用户信息-->
+    <select id="queryUser" resultType="User">
+        SELECT * FROM test.student
+    </select>
+
+    <update id="deleteUser" >
+        DELETE FROM `test`.`student` WHERE `sid` = #{id}
+    </update>
+
+    <update id="addUser" parameterType="User">
+        INSERT INTO `test`.`student` (`sid`, `sName`, `sAge`, `sSex`) VALUES (NULL, #{sName}, #{sAge}, #{sSex})
+    </update>
+
+    <select id="login" resultType="User">
+         SELECT * FROM test.student WHERE student.sName=#{sName} AND student.sPassword=#{sPassword}
+    </select>
+
+
+
+</mapper>
